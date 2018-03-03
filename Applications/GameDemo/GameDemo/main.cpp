@@ -36,14 +36,39 @@ int main(int argc, const char * argv[])
         return -1;
     }
 
-    // Get an event
-    SDL_Event event;
-    SDL_PollEvent(&event);
+    SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    if (renderer == nullptr)
+    {
+        SDL_Log("Could not create a renderer: %s", SDL_GetError());
+        return -1;
+    }
 
-    // Wait a bit
-    SDL_Delay(3000);
+    while (true)
+    {
+        // Get the next event
+        SDL_Event event;
+        if (SDL_PollEvent(&event))
+        {
+            if (event.type == SDL_QUIT)
+            {
+                break;
+            }
+        }
+
+        // Randomly change the colour
+        Uint8 red = rand() % 255;
+        Uint8 green = rand() % 255;
+        Uint8 blue = rand() % 255;
+
+        // Fill the screen with the colour
+        SDL_SetRenderDrawColor(renderer, red, green, blue, 255);
+        SDL_RenderClear(renderer);
+
+        SDL_RenderPresent(renderer);
+    }
 
     // Tidy up
+    SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();
 
