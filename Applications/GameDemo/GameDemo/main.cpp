@@ -23,7 +23,28 @@ int main(int argc, const char * argv[])
         return -1;
     }
 
-    cout << "Hooray it works!\n";
+    // Create a window
+    SDL_Window *window = SDL_CreateWindow("Demo Game",
+                                          SDL_WINDOWPOS_UNDEFINED,
+                                          SDL_WINDOWPOS_UNDEFINED,
+                                          640,
+                                          480,
+                                          SDL_WINDOW_OPENGL);
+    if (window == nullptr)
+    {
+        SDL_Log("Could not create a window: %s", SDL_GetError());
+        return -1;
+    }
+
+    // Get an event
+    SDL_Event event;
+    SDL_PollEvent(&event);
+
+    // Wait a bit
+    SDL_Delay(3000);
+
+    // Tidy up
+    SDL_DestroyWindow(window);
     SDL_Quit();
 
     return 0;
