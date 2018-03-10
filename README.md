@@ -3,7 +3,11 @@ The project for the SDL2 tutorials on my blog [matthewstyles.com](http://mathews
 
 I put this together to give me a clear set of instructions to help me setup projects with SDL as I always forget exactly how to configure everything and how it all works.
 
-The first tutorial can be found [here](http://matthewstyles.com/set-up-an-sdl2-project-in-xcode/).
+The current tutorials are:-
+
+- Part 1: [Setting Up An SDL2 Project In Xcode 9](http://matthewstyles.com/set-up-an-sdl2-project-in-xcode/)
+- Part 2: [Writing An SDL2 Game Loop](http://matthewstyles.com/writing-an-sdl2-game-loop/)
+- Part 3: _Coming soon_ Writing A Better Game Loop
 
 # License
 
